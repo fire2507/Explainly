@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 import cv2
 
-model = YOLO("yolov8n.pt")  # lightweight model
+model = YOLO("yolov8n.pt")  
 
 def detect_objects(image_path):
     results = model(image_path)
@@ -12,4 +12,5 @@ def detect_objects(image_path):
         for box in r.boxes:
             cls = int(box.cls[0])
             labels.append(names[cls])
-    return list(set(labels))  # unique objects detected
+    return list(set(labels))  
+
